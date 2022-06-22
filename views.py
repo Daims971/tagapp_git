@@ -16,7 +16,8 @@ def index():
     # if request.method == 'GET':
         # return f"The URL /data is accessed directly. Try going to '/form' to submit form"
     if request.method == 'POST':
-        form_data = request.form('question')
+        form_data = request.form['question'] #request.form('question')
+        print('form_data = '+form_data, file=sys.stdout)
         data_result = form_data
         
         return render_template('result.html', data_result)
@@ -27,8 +28,8 @@ def index():
 @app.route('/result')
 def result():
 
-        print('This is standard output', file=sys.stdout)
-        print(form_data)
+        # print('This is standard output', file=sys.stdout)
+        # print(form_data)
         return render_template('result.html')
  
     # response = request.form
