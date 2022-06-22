@@ -40,6 +40,13 @@
 		<div class="row gx-4 justify-content-center">
 			<div class="col-lg-8">
 				<h2>About this page</h2>
+				<p class="lead">This page shows the result of the outpout from the Machine Learning algorithm. The different steps are:</p>
+				<ul>
+					<li>Getting the input from "index.html".</li>
+					<li>Transforming the question input into tags outpouts thanks to the backend process in "views.py" and "utils.py".</li>
+					<li>Using "utils.py" to load all the machine learning methods. We use a Passive Agressive Classifier, which is the best estimator among multiple other estimators previously trained in a local environment. </li>
+					<li>The response outputs given from the estimator are not always relevant. Sometimes, based on the prepocessing and parameters of the estimator, no actuals tag outputs are found. A new study could be done to always get an output from an input question.</li>
+				</ul>
 			</div>
 		</div>
 	</div>
