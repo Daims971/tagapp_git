@@ -7,8 +7,12 @@
 	<div class="container px-4 text-center">
 					
 		{% if data_result %}
-		  <h1>My question: {{ data_result }}!</h1>
-
+		  <!-- <h1>My question: {{ data_result }}!</h1> -->
+		  <!-- <body> -->
+			<h2> Your tag list is: {{data_result}}</h2>
+			
+			
+		  <!-- </body> -->
 		{% else %}
 			<h1>No tags found! Try again!</h1>
 		{% endif %}
