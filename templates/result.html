@@ -9,8 +9,11 @@
 		{% if data_result %}
 		  <!-- <h1>My question: {{ data_result }}!</h1> -->
 		  <!-- <body> -->
-			<h2> Your tag list is: {{data_result}}</h2>
+			<h2> Your tag list is:</h2>
 			
+			{% for tags in data_result %}
+				<h2><li>{{tags}}</li></h2>
+			{% endfor %}
 			
 		  <!-- </body> -->
 		{% else %}

@@ -23,9 +23,9 @@ def index():
         for res in data_result:
             print('data_result_i = '+res, file=sys.stdout)
         
-        myDict = {data_result[i]: data_result[i] for i in range(0, len(data_result), 1)}
+        # myDict = {data_result[i]: data_result[i] for i in range(0, len(data_result), 1)}
         
-        return render_template('result.html', data_result[0])
+        return render_template('result.html', data_result = data_result)
     else:
         return render_template('index.html')
     # return "Hello world !"

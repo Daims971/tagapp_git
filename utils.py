@@ -38,7 +38,11 @@ scoring_model = {'score_jaccard_func':score_jaccard_func, 'accuracy':'accuracy'}
 # Import des modèles entrainés
 
 
-estimator = joblib.load(os.getcwd() + '\\tagapp\\tfidf_input_pipe_pac_cv.pkl')
+# estimator = joblib.load(os.getcwd() + '\\tagapp\\tfidf_input_pipe_pac_cv.pkl')
+estimator = joblib.load(os.getcwd() + '\\tagapp\\estimator_sup.pkl')
+
+tag_list_100 = joblib.load(os.getcwd() + '\\tagapp\\tag_list_100.pkl')
+
 
 
 
@@ -123,14 +127,27 @@ def tokenizer_tags(sentence) :
     word_tokens_sorted = sorted(set(lw_bis))
     return word_tokens_sorted
 
+def find_tags(y_pred,tag_list_true):
+    idx = 0
+    tag_list_doc_ = []
+
+    for idx in range((y_pred.shape[0])):
+            idx_doc = np.where(y_pred[idx,:] == 1)
+            test_tag = [tag_list_true[i] for i in idx_doc[0]]
+            tag_list_doc_.append( test_tag )
+    return tag_list_doc_
+
 
 # ---------------------------- Nettoyage Question & predictions
 
 def pred_tags(user_question):
     user_question_cleaned = transform_bow_fct(user_question)
     
-    y_pred = estimator.best_estimator_.fit_transform([user_question_cleaned])
+    # y_pred = estimator.best_estimator_.fit_transform([user_question_cleaned])
+    # y_pred = estimator.best_estimator_.fit_transform([user_question_cleaned])
+    y_pred = estimator.predict([user_question_cleaned])
     
+    tag_list_doc_pred = find_tags(y_pred, tag_list_100)
     
-    return y_pred
+    return tag_list_doc_pred
 
