@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<!-- Header-->
+<header class="bg-primary bg-gradient text-white">
+	<div class="container px-4 text-center">
+					
+		{% if data_result %}
+		  <h1>My question: {{ data_result }}!</h1>
+
+		{% else %}
+			<h1>No tags found! Try again!</h1>
+		{% endif %}
+
+
+	</div>
+</header>
+		
+
+<!-- About section-->
+<section id="about">
+	<div class="container px-4">
+		<div class="row gx-4 justify-content-center">
+			<div class="col-lg-8">
+				<h2>About this page</h2>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+
+
+</html>
